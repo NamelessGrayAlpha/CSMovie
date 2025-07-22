@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZETFLIX</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Watch trending movies, TV shows, and anime with instant streaming.">
+  <title>My Streaming Website</title>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/home.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- ✅ Preconnect to improve API & image loading -->
+  <link rel="preconnect" href="https://api.themoviedb.org">
+  <link rel="preconnect" href="https://image.tmdb.org">
 
-  <!-- Preload for performance -->
-  <link rel="preload" href="css/home.css" as="style" />
-  <link rel="preload" href="js/home.js" as="script" />
+  <!-- ✅ Main Stylesheet -->
+  <link rel="stylesheet" href="css/home.css">
 
-  <!-- Manifest (optional PWA) -->
-  <link rel="manifest" href="manifest.json" />
+  <!-- ✅ Font Awesome (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- ✅ PWA manifest (optional) -->
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <img src="logo.png" alt="ZETFLIX Logo" />
+  <!-- ✅ NAVIGATION -->
+  <nav class="navbar">
+    <img src="logo.png" alt="Website Logo">
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <input 
-        type="text" 
-        class="search-bar" 
-        placeholder="Search..." 
-        onfocus="openSearchModal()" 
-      />
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()">
     </div>
-  </div>
+  </nav>
 
-  <!-- Banner -->
-  <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
-  </div>
+  <!-- ✅ MAIN CONTENT -->
+  <main>
+    <!-- Banner (clickable to open modal) -->
+    <section class="banner" id="banner" role="button" aria-label="Featured Movie">
+      <h1 id="banner-title">Loading...</h1>
+    </section>
 
-  <!-- Content Rows -->
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
-  </div>
+    <!-- Trending Sections -->
+    <section class="row">
+      <h2>Trending Movies</h2>
+      <div class="list" id="movies-list"></div>
+    </section>
 
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
+    <section class="row">
+      <h2>Trending TV Shows</h2>
+      <div class="list" id="tvshows-list"></div>
+    </section>
 
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-  </div>
+    <section class="row">
+      <h2>Trending Anime</h2>
+      <div class="list" id="anime-list"></div>
+    </section>
+  </main>
 
-  <!-- Details Modal (Fullscreen) -->
+  <!-- ✅ MODAL for Movie Details -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-
       <div class="modal-body">
-        <img id="modal-image" src="" alt="" />
+        <img id="modal-image" src="" alt="Movie Poster">
         <div class="modal-text">
-          <h2 id="modal-title"></h2>
+          <h2 id="modal-title">Loading...</h2>
           <div class="stars" id="modal-rating"></div>
-          <p id="modal-description"></p>
+          <p id="modal-description">No description available.</p>
         </div>
       </div>
 
@@ -76,32 +76,21 @@
         </select>
       </div>
 
-      <iframe 
-        id="modal-video" 
-        width="100%" 
-        height="315" 
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- Search Modal -->
+  <!-- ✅ SEARCH MODAL -->
   <div class="search-modal" id="search-modal">
     <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input 
-      type="text" 
-      id="search-input" 
-      placeholder="Search for a movie or show..." 
-      oninput="searchTMDB()" 
-    />
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()">
     <div class="results" id="search-results"></div>
   </div>
 
-  <!-- Footer -->
+  <!-- ✅ FOOTER -->
   <footer class="footer">
     <div class="footer-content">
-      <p>&copy; 2025 ZETFLIX. All rights reserved.</p>
+      <p>&copy; 2025 My Website. All rights reserved.</p>
       <div class="footer-links">
         <a href="#">Disclaimer</a>
         <a href="#">About Us</a>
@@ -110,7 +99,7 @@
     </div>
   </footer>
 
-  <!-- JS -->
+  <!-- ✅ JavaScript (deferred for better performance) -->
   <script defer src="js/home.js"></script>
 </body>
 </html>
