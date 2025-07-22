@@ -1,69 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Watch trending movies, TV shows, and anime with instant streaming.">
-  <title>My Streaming Website</title>
-
-  <!-- ✅ Preconnect to improve API & image loading -->
-  <link rel="preconnect" href="https://api.themoviedb.org">
-  <link rel="preconnect" href="https://image.tmdb.org">
-
-  <!-- ✅ Main Stylesheet -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSMovie - Stream Movies, TV Shows & Anime</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="Stream trending movies, TV shows, and anime on CSMovie for free. Search and watch instantly!" />
+  <meta name="theme-color" content="#e50914" />
+  
+  <!-- Styles & Icons -->
   <link rel="stylesheet" href="css/home.css">
-
-  <!-- ✅ Font Awesome (optional) -->
+  <link rel="preload" href="css/home.css" as="style">
+  <link rel="preload" href="js/home.js" as="script">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- ✅ PWA manifest (optional) -->
+  
+  <!-- Manifest (Optional PWA) -->
   <link rel="manifest" href="manifest.json">
+
+  <!-- Script -->
+  <script defer src="js/home.js"></script>
 </head>
 
 <body>
-  <!-- ✅ NAVIGATION -->
-  <nav class="navbar">
-    <img src="logo.png" alt="Website Logo">
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="logo.png" alt="CSMovie Logo" />
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()">
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
     </div>
-  </nav>
+  </div>
 
-  <!-- ✅ MAIN CONTENT -->
-  <main>
-    <!-- Banner (clickable to open modal) -->
-    <section class="banner" id="banner" role="button" aria-label="Featured Movie">
-      <h1 id="banner-title">Loading...</h1>
-    </section>
+  <!-- Banner -->
+  <div class="banner" id="banner">
+    <h1 id="banner-title"></h1>
+  </div>
 
-    <!-- Trending Sections -->
-    <section class="row">
-      <h2>Trending Movies</h2>
-      <div class="list" id="movies-list"></div>
-    </section>
+  <!-- Trending Rows -->
+  <div class="row">
+    <h2>Trending Movies</h2>
+    <div class="list" id="movies-list"></div>
+  </div>
 
-    <section class="row">
-      <h2>Trending TV Shows</h2>
-      <div class="list" id="tvshows-list"></div>
-    </section>
+  <div class="row">
+    <h2>Trending TV Shows</h2>
+    <div class="list" id="tvshows-list"></div>
+  </div>
 
-    <section class="row">
-      <h2>Trending Anime</h2>
-      <div class="list" id="anime-list"></div>
-    </section>
-  </main>
+  <div class="row">
+    <h2>Trending Anime</h2>
+    <div class="list" id="anime-list"></div>
+  </div>
 
-  <!-- ✅ MODAL for Movie Details -->
+  <!-- Fullscreen Modal -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
       <div class="modal-body">
-        <img id="modal-image" src="" alt="Movie Poster">
+        <img id="modal-image" src="" alt="" />
         <div class="modal-text">
-          <h2 id="modal-title">Loading...</h2>
+          <h2 id="modal-title"></h2>
           <div class="stars" id="modal-rating"></div>
-          <p id="modal-description">No description available.</p>
+          <p id="modal-description"></p>
         </div>
       </div>
 
@@ -75,31 +74,28 @@
           <option value="player.videasy.net">Player.Videasy.net</option>
         </select>
       </div>
-
       <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- ✅ SEARCH MODAL -->
+  <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
     <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()">
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
     <div class="results" id="search-results"></div>
   </div>
 
-  <!-- ✅ FOOTER -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <p>&copy; 2025 My Website. All rights reserved.</p>
+      <p>&copy; 2025 CSMovie. All rights reserved.</p>
       <div class="footer-links">
         <a href="#">Disclaimer</a>
         <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+        <a href="mailto:support@csmovie.com">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- ✅ JavaScript (deferred for better performance) -->
-  <script defer src="js/home.js"></script>
 </body>
 </html>
