@@ -434,7 +434,12 @@
       
       <div class="modal-player">
         <div class="player-wrapper">
-          <iframe id="modal-video" frameborder="0" allowfullscreen></iframe>
+          <iframe 
+            id="modal-video" 
+            frameborder="0" 
+            allowfullscreen 
+            sandbox="allow-same-origin allow-scripts allow-presentation"
+          ></iframe>
           <div class="loading-overlay" id="loading-overlay">
             <div class="loading-spinner"></div>
             <p>Loading video...</p>
